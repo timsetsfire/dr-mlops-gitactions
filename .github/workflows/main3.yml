@@ -1,0 +1,23 @@
+name: Check Model Artifacts for Hosting In DataRobot
+on:
+  push:
+    branches:
+      - master
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: pip install -r ./model/requirements.txt -q
+      - run: pip install datarobot-drum==1.10.21 -q
+      - name: Checking compatibility with DataRobot Custom Inference 
+        run: python custom_inference_test.py
+        env: 
+          DATAROBOT_API_TOKEN: ${{ secrets.DATAROBOT_API_TOKEN }}
+          DATAROBOT_ENDPOINT: https://app.datarobot.com/api/v2
+      - run: echo "This job's status is ${{ job.status }}."
