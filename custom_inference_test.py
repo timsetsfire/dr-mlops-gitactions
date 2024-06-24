@@ -2,6 +2,7 @@ import datarobot as dr
 import yaml 
 
 import sys
+print("forcing an exit")
 sys.exit(1)
 
 
