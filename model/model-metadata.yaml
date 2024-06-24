@@ -1,0 +1,10 @@
+description: a meaningful description of the model
+environmentID: 5e8c889607389fe0f466c72d
+inferenceModel:
+  negativeClassLabel: '0'
+  positiveClassLabel: '1'
+  targetName: target
+majorVersion: true
+name: Arbitrary Classification Problem
+targetType: binary
+type: inference
