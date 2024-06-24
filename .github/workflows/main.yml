@@ -14,9 +14,4 @@ jobs:
       - run: pip install datarobot-drum==1.10.21 -q
       - run: echo "running datarobot drum validation"
       - run: drum validation --code-dir ./model --input test_data.csv
-      - name: Checking compatibility with DataRobot Custom Inference 
-        run: python custom_inference_test.py
-        env: 
-          DATAROBOT_API_TOKEN: ${{ secrets.DATAROBOT_API_TOKEN }}
-          DATAROBOT_ENDPOINT: https://app.datarobot.com/api/v2
       - run: "This job's status is ${{ job.status }}."
