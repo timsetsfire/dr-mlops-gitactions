@@ -18,7 +18,7 @@ jobs:
       - run: python --version
       - run: pip install -r ./model/requirements.txt -q
       - name: Checking compatibility with DataRobot Custom Inference 
+        run: python custom_inference_test.py
         env: 
           DATARBOT_API_TOKEN: ${{ secrets.DATAROBOT_API_TOKEN }}
           DATAROBOT_ENDPOINT: https://app.datarobot.com/api/v2
-        run: python custom_inference_test.py
