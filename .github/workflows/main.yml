@@ -1,5 +1,7 @@
 name: Check Model Artifacts for Hosting In DataRobot
-on: [push]
+on:
+  merge:
+    branches: [main]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
