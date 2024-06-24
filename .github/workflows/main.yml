@@ -4,6 +4,9 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - env:
+          DATARBOT_API_TOKEN: ${{ secrets.DATAROBOT_API_TOKEN }}
+          DATAROBOT_ENDPOINT: https://app.datarobot.com/api/v2
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -15,8 +18,6 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: export DATAROBOT_API_TOKEN=${{secrets.DATAROBOT_API_TOKEN}}
-      - run: export DATAROBOT_ENDPOINT=https://app.datarobot.com/api/v2
       - run: python --version
       - run: pip install -r ./model/requirements.txt -q
       - run: python custom_inference_test.py
