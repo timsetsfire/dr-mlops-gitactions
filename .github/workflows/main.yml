@@ -20,5 +20,5 @@ jobs:
       - name: Checking compatibility with DataRobot Custom Inference 
         run: python custom_inference_test.py
         env: 
-          DATARBOT_API_TOKEN: ${{ secrets.DATAROBOT_API_TOKEN }}
+          DATAROBOT_API_TOKEN: ${{ secrets.DATAROBOT_API_TOKEN }}
           DATAROBOT_ENDPOINT: https://app.datarobot.com/api/v2
