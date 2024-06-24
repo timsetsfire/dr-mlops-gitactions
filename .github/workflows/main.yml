@@ -15,6 +15,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: export DATAROBOT_API_TOKEN=${{secrets.DATAROBOT_API_TOKEN}}
       - run: python --version
       - run: pip install -r ./model/requirements.txt -q
       - run: python custom_inference_test.py
