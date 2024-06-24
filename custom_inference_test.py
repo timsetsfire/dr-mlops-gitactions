@@ -1,10 +1,6 @@
 import datarobot as dr 
 import yaml 
-
 import sys
-print("forcing an exit")
-sys.exit(1)
-
 
 with open("./model/model-metadata.yaml") as f:
     model_metadata = yaml.load(f, Loader = yaml.SafeLoader)
@@ -51,6 +47,14 @@ custom_model_test = dr.CustomModelTest.create(
     # max_wait = max_wait
 )
 
-print(f"testing overall status: {custom_model_test.overall_status}")
-for test, status in custom_model_test.detailed_status.items():
-    print(f'{test}: {status["status"]} {status["message"]}')
+if custom_model_test.overall_status != "succeeded":
+    for test, status in custom_model_test.detailed_status.items():
+        if status["status"] == "failed":
+            print(f'{test}: {status["status"]} {status["message"]}')
+        sys.exit(1)
+else:
+    print(f"testing overall status: {custom_model_test.overall_status}")
+    for test, status in custom_model_test.detailed_status.items():
+        print(f'{test}: {status["status"]} {status["message"]}')
+
+print("model is ready for deployment")
