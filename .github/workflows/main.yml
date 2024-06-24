@@ -11,9 +11,9 @@ jobs:
         uses: actions/checkout@v3
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: pip install -r ./model/requirements.txt -q
-      - run: pip install datarobot-drum==1.10.21
+      - run: pip install datarobot-drum==1.10.21 -q
       - run: echo "running datarobot drum validation"
-      - run: drum --code-dir ./model --input test_data.csv
+      - run: drum validation --code-dir ./model --input test_data.csv
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Checking compatibility with DataRobot Custom Inference 
         run: python custom_inference_test.py
