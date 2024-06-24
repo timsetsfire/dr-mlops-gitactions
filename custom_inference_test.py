@@ -1,5 +1,10 @@
 import datarobot as dr 
 import yaml 
+
+import sys
+sys.exit(1)
+
+
 with open("./model/model-metadata.yaml") as f:
     model_metadata = yaml.load(f, Loader = yaml.SafeLoader)
 
