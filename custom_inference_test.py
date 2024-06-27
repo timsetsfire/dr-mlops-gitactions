@@ -15,7 +15,6 @@ target_name = inference_model.get("targetName")
 postive_class_label =  inference_model.get("positiveClassLabel")
 negative_class_label = inference_model.get("negativeClassLabel")
 environment_id = model_metadata.get("environmentID")
-training_dataset_id = model_metadata.get("datasetID")
 
 if custom_model_id is None:
     custom_model = dr.CustomInferenceModel.create(
@@ -25,7 +24,6 @@ if custom_model_id is None:
         language = "python", 
         positive_class_label = postive_class_label, 
         negative_class_label = negative_class_label,
-        training_dataset_id = training_dataset_id
     )
 else:
     custom_model = dr.CustomInferenceModel.get(custom_model_id)
@@ -40,12 +38,12 @@ try:
 except Exception as e:
     print(e)
 
-test_dataset = dr.Dataset.create_from_file(file_path = "test_data.csv")
+# test_dataset = dr.Dataset.create_from_file(file_path = "test_data.csv")
 
 custom_model_test = dr.CustomModelTest.create(
     custom_model_id = custom_model.id,
     custom_model_version_id = custom_model_version.id,
-    dataset_id = test_dataset.id, 
+    dataset_id = "667d5e092bdf18f7dc29e179", 
     # max_wait = max_wait
 )
 
