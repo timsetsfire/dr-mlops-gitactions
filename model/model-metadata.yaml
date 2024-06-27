@@ -8,5 +8,4 @@ majorVersion: true
 name: Arbitrary Classification Problem
 targetType: binary
 type: inference
-datasetID: 667d5c8398e8d4667e1fc157
 modelID: 667b264622840d7ded1fba5e
