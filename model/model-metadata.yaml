@@ -1,3 +1,4 @@
+datasetID: 667d5c8398e8d4667e1fc157
 description: a meaningful description of the model
 environmentID: 5e8c889607389fe0f466c72d
 inferenceModel:
@@ -5,8 +6,7 @@ inferenceModel:
   positiveClassLabel: '1'
   targetName: target
 majorVersion: true
+modelID: 667b264622840d7ded1fba5e
 name: Arbitrary Classification Problem
 targetType: binary
 type: inference
-modelID: 667b264622840d7ded1fba5e
-
