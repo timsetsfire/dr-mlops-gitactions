@@ -15,6 +15,7 @@ target_name = inference_model.get("targetName")
 postive_class_label =  inference_model.get("positiveClassLabel")
 negative_class_label = inference_model.get("negativeClassLabel")
 environment_id = model_metadata.get("environmentID")
+training_dataset_id = model_metadata.get("datasetID")
 
 if custom_model_id is None:
     custom_model = dr.CustomInferenceModel.create(
@@ -23,7 +24,8 @@ if custom_model_id is None:
         target_name = target_name, 
         language = "python", 
         positive_class_label = postive_class_label, 
-        negative_class_label = negative_class_label
+        negative_class_label = negative_class_label,
+        training_dataset_id = training_dataset_id
     )
 else:
     custom_model = dr.CustomInferenceModel.get(custom_model_id)
